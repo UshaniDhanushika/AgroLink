@@ -1,0 +1,68 @@
+import React, { createContext, useState, useEffect } from 'react';
+import type { ReactNode } from 'react';
+
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+}
+
+interface AuthContextType {
+  user: User | null;
+  isAuthenticated: boolean;
+  login: (token: string, userData: User) => void;
+  logout: () => void;
+  isLoading: boolean;
+}
+
+export const AuthContext = createContext<AuthContextType>({
+  user: null,
+  isAuthenticated: false,
+  login: () => {},
+  logout: () => {},
+  isLoading: true,
+});
+
+interface AuthProviderProps {
+  children: ReactNode;
+}
+
+export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
+  const [user, setUser] = useState<User | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    const storedUser = localStorage.getItem('user');
+
+    if (token && storedUser) {
+      try {
+        setUser(JSON.parse(storedUser));
+      } catch (error) {
+        console.error('Failed to parse user data from local storage', error);
+      }
+    }
+    setIsLoading(false);
+  }, []);
+
+  const login = (token: string, userData: User) => {
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(userData));
+    setUser(userData);
+  };
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    setUser(null);
+  };
+
+  const isAuthenticated = !!user;
+
+  return (
+    <AuthContext.Provider value={{ user, isAuthenticated, login, logout, isLoading }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
