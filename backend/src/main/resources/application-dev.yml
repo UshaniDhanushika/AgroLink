@@ -1,0 +1,17 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/agrolink}
+      auto-index-creation: true
+
+logging:
+  level:
+    com.agrolink: DEBUG
+    org.springframework.data.mongodb.core.MongoTemplate: INFO
+
+agrolink:
+  cors:
+    allowed-origins: http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173
