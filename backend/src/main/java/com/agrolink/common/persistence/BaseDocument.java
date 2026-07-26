@@ -9,11 +9,12 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.Version;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
  * Base document with universal audit and soft-delete fields.
  * Business module documents should extend this class.
+ *
+ * Note: No 'status' field here — each entity defines its own typed status.
  */
 @Getter
 @Setter
@@ -21,9 +22,6 @@ public abstract class BaseDocument {
 
     @Id
     private String id;
-
-    @Field("status")
-    private String status;
 
     @CreatedDate
     private Instant createdAt;

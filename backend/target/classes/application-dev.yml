@@ -11,7 +11,22 @@ logging:
   level:
     com.agrolink: DEBUG
     org.springframework.data.mongodb.core.MongoTemplate: INFO
+    org.springframework.security: DEBUG
 
 agrolink:
   cors:
-    allowed-origins: http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173
+    allowed-origins:
+      - http://localhost:5173
+      - http://localhost:3000
+      - http://127.0.0.1:5173
+  security:
+    jwt:
+      # Dev: 15-minute access token, 7-day refresh token
+      access-token-expiration-ms: 900000
+      refresh-token-expiration-ms: 604800000
+      # IMPORTANT: Set a strong random secret in .env before running
+      secret: ${JWT_SECRET:AgroLinkDevSecretKeyMustBeAtLeast256BitsLongForHS256!!}
+
+# Dev note: After POST /api/v1/auth/register, check logs for the email
+# verification token (MockEmailService prints it). Use GET /api/v1/auth/verify-email?token=...
+# before attempting login, or manually set emailVerified=true in MongoDB.

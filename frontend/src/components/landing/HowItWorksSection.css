@@ -1,0 +1,229 @@
+/* ===== HowItWorksSection.css ===== */
+
+.hiw-section {
+  position: relative;
+  background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg-base) 100%);
+  overflow: hidden;
+}
+
+.hiw-bg-blob {
+  position: absolute;
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(45,158,95,0.07) 0%, transparent 70%);
+  right: -200px; top: -100px;
+  pointer-events: none;
+}
+
+/* ── Layout ──────────────────────────────────── */
+.hiw-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .hiw-layout { grid-template-columns: 1fr; }
+}
+
+/* ── Role tabs ───────────────────────────────── */
+.hiw-role-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.hiw-role-tab {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 22px;
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--txt-muted);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  font-family: inherit;
+}
+
+.hiw-role-tab:hover {
+  background: var(--glass-bg-strong);
+  color: var(--txt-primary);
+}
+
+.hiw-role-tab.active {
+  font-weight: 700;
+}
+
+.hiw-role-tagline {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-top: 0.75rem;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.01em;
+}
+
+/* ── Step buttons ─────────────────────────────── */
+.hiw-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hiw-step-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition-base);
+  overflow: hidden;
+}
+
+.hiw-step-btn:hover {
+  background: var(--glass-bg-strong);
+  border-color: var(--glass-border-em);
+}
+
+.hiw-step-btn.active {
+  background: var(--glass-bg-strong);
+  border-color: var(--step-color, var(--clr-lime));
+  box-shadow: 0 0 30px rgba(109,191,103,0.12);
+}
+
+.hiw-step-num {
+  font-size: 1.2rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  color: var(--txt-muted);
+  min-width: 36px;
+  transition: color var(--transition-base);
+}
+
+.hiw-step-meta {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.hiw-step-icon {
+  color: var(--txt-muted);
+  transition: color var(--transition-base);
+  flex-shrink: 0;
+}
+
+.hiw-step-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--txt-primary);
+}
+
+.hiw-step-chevron {
+  color: var(--txt-muted);
+  transition: transform var(--transition-base);
+}
+.hiw-step-btn.active .hiw-step-chevron {
+  transform: rotate(90deg);
+  color: var(--clr-lime);
+}
+
+.hiw-step-progress {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+/* ── Detail panel ─────────────────────────────── */
+.hiw-detail-panel { position: relative; }
+
+.hiw-detail {
+  padding: 2.5rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(109,191,103,0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.hiw-detail-num {
+  font-size: 5rem;
+  font-weight: 900;
+  font-family: var(--font-heading);
+  line-height: 1;
+  opacity: 0.12;
+  position: absolute;
+  top: 1rem; right: 1.5rem;
+  letter-spacing: -0.06em;
+}
+
+.hiw-detail-icon-wrap {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.hiw-detail-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--txt-primary);
+  margin-bottom: 0.75rem;
+}
+
+.hiw-detail-desc {
+  font-size: 0.95rem;
+  color: var(--txt-secondary);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.hiw-detail-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.hiw-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.9rem;
+  color: var(--txt-secondary);
+  padding: 0.5rem 0.75rem;
+  background: rgba(109,191,103,0.05);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(109,191,103,0.1);
+}
+
+/* Progress dots */
+.hiw-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.hiw-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--glass-border);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+.hiw-dot-active {
+  width: 24px;
+  border-radius: var(--radius-full);
+}

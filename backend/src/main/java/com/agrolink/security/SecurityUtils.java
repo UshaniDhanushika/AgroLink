@@ -34,4 +34,16 @@ public final class SecurityUtils {
         UserPrincipal principal = currentUser();
         return principal != null && role != null && role.equalsIgnoreCase(principal.getRole());
     }
+
+    /**
+     * Returns the current user's ID or throws a 401 UnauthorizedException.
+     * Use this in controller methods that must run in an authenticated context.
+     */
+    public static String requireCurrentUserId() {
+        String id = currentUserId();
+        if (id == null) {
+            throw new com.agrolink.common.exception.UnauthorizedException("Authentication required");
+        }
+        return id;
+    }
 }

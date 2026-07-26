@@ -1,0 +1,250 @@
+/* ===== TestimonialsSection.css ===== */
+
+.testimonials-section {
+  position: relative;
+  background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-elevated) 100%);
+  overflow: hidden;
+}
+.test-bg-blob-l {
+  position: absolute; left: -200px; top: 50%;
+  transform: translateY(-50%);
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(45,158,95,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.test-bg-blob-r {
+  position: absolute; right: -150px; bottom: 0;
+  width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(87,206,235,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Carousel ─────────────────────────────────── */
+.test-carousel-wrap {
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
+}
+
+.test-card {
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  border: 1px solid rgba(109,191,103,0.12);
+  overflow: hidden;
+  min-height: 280px;
+}
+
+.test-card-inner {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (max-width: 700px) {
+  .test-card-inner { grid-template-columns: 1fr; }
+}
+
+/* ── Quote side ─────────────────────────────────── */
+.test-quote-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Role pill above quote */
+.test-role-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  align-self: flex-start;
+}
+
+.test-quote-icon { color: var(--clr-lime); opacity: 0.6; }
+
+.test-text {
+  font-size: 1.05rem;
+  color: var(--txt-primary);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.test-stars { display: flex; gap: 3px; }
+
+.test-author {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.test-avatar {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--grad-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.test-name {
+  font-weight: 700;
+  color: var(--txt-primary);
+  font-size: 0.95rem;
+}
+.test-role {
+  font-size: 0.8rem;
+  color: var(--txt-muted);
+  margin-top: 2px;
+}
+
+/* ── Metric side ─────────────────────────────────── */
+.test-metric-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.test-metric-card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: rgba(45,158,95,0.1);
+  border: 1px solid rgba(109,191,103,0.2);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.test-metric-val {
+  font-size: 3rem;
+  font-weight: 900;
+  font-family: var(--font-heading);
+  color: inherit;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.test-metric-lbl {
+  font-size: 0.85rem;
+  color: var(--txt-secondary);
+  margin-top: 0.5rem;
+}
+
+/* Progress */
+.test-progress { width: 100%; }
+.test-progress-label {
+  font-size: 0.78rem;
+  color: var(--txt-muted);
+  text-align: right;
+  margin-bottom: 0.35rem;
+}
+.test-progress-track {
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.test-progress-fill {
+  height: 100%;
+  background: var(--grad-accent);
+  border-radius: var(--radius-full);
+}
+
+/* ── Navigation ─────────────────────────────────── */
+.test-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.test-nav-btn {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--txt-primary);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+.test-nav-btn:hover {
+  background: var(--glass-bg-strong);
+  border-color: var(--glass-border-em);
+  transform: scale(1.08);
+}
+
+.test-dots { display: flex; gap: 0.5rem; }
+.test-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--glass-border);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+.test-dot-active {
+  width: 24px;
+  border-radius: var(--radius-full);
+  background: var(--clr-lime);
+}
+
+/* ── Author strip ─────────────────────────────── */
+.test-strip {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: none;
+}
+.test-strip::-webkit-scrollbar { display: none; }
+
+.test-strip-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  min-width: 110px;
+  flex-shrink: 0;
+}
+.test-strip-item:hover,
+.test-strip-item.active {
+  background: var(--glass-bg-strong);
+  border-color: var(--glass-border-em);
+}
+.test-strip-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--grad-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fff;
+}
+.test-strip-name {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--txt-primary);
+}
+.test-strip-loc {
+  font-size: 0.68rem;
+  color: var(--txt-muted);
+  text-align: center;
+}

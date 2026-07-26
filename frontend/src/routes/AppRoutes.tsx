@@ -6,9 +6,10 @@ import ProtectedRoute from './ProtectedRoute';
 import Loading from '../components/common/Loading';
 
 // Lazy loading pages for better performance
-const Home = lazy(() => import('../pages/Home'));
-const Login = lazy(() => import('../pages/Login'));
-const NotFound = lazy(() => import('../pages/NotFound'));
+const Home      = lazy(() => import('../pages/Home'));
+const Login     = lazy(() => import('../pages/Login'));
+const Register  = lazy(() => import('../pages/Register'));
+const NotFound  = lazy(() => import('../pages/NotFound'));
 
 const AppRoutes: React.FC = () => {
   return (
@@ -16,13 +17,14 @@ const AppRoutes: React.FC = () => {
       <Routes>
         {/* Auth Routes */}
         <Route element={<AuthLayout />}>
-          <Route path="/login" element={<Login />} />
+          <Route path="/login"    element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Route>
 
         {/* Protected Routes inside MainLayout */}
         <Route element={<ProtectedRoute />}>
           <Route element={<MainLayout />}>
-            <Route path="/" element={<Home />} />
+            <Route path="/dashboard" element={<Home />} />
             {/* Add more protected business pages here later */}
           </Route>
         </Route>

@@ -1,0 +1,176 @@
+/* ===== AboutSection.css ===== */
+
+.about-section {
+  position: relative;
+  background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-elevated) 100%);
+  overflow: hidden;
+}
+.about-bg-blob-l {
+  position: absolute; left: -200px; top: 0;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(45,158,95,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.about-bg-blob-r {
+  position: absolute; right: -150px; bottom: 0;
+  width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,200,66,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Grid layout ─────────────────────────────── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+/* ── Visual frame ────────────────────────────── */
+.about-visual {
+  position: relative;
+}
+
+.about-image-frame {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid rgba(109,191,103,0.15);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.45);
+}
+
+.about-illustration {
+  padding: 1rem;
+}
+
+.about-svg {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+}
+
+.about-float-badge {
+  position: absolute;
+  bottom: -20px; right: -20px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(245,200,66,0.25);
+  background: rgba(13,34,24,0.9);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+.about-badge-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--txt-primary);
+}
+.about-badge-sub {
+  font-size: 0.72rem;
+  color: var(--txt-muted);
+}
+
+/* ── Content ─────────────────────────────────── */
+.about-content { display: flex; flex-direction: column; gap: 0.75rem; }
+.about-lead {
+  font-size: 1.08rem;
+  color: var(--txt-secondary);
+  line-height: 1.75;
+}
+
+/* ── Pillar checklist ─────────────────────────── */
+.about-pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+@media (max-width: 480px) {
+  .about-pillars { grid-template-columns: 1fr; }
+}
+
+.about-pillar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--txt-secondary);
+  padding: 0.5rem 0.75rem;
+  background: rgba(109,191,103,0.06);
+  border: 1px solid rgba(109,191,103,0.12);
+  border-radius: var(--radius-md);
+}
+.about-pillar-icon { color: var(--clr-lime); flex-shrink: 0; }
+
+/* ── Timeline ─────────────────────────────────── */
+.about-timeline { margin-top: 2rem; }
+.about-timeline-heading {
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.timeline-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  position: relative;
+}
+
+@media (max-width: 900px) {
+  .timeline-track { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+  .timeline-track { grid-template-columns: 1fr; }
+}
+
+.timeline-item {
+  position: relative;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+.timeline-item:hover {
+  border-color: var(--glass-border-em);
+  transform: translateY(-4px);
+}
+
+.timeline-icon {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(109,191,103,0.12);
+  border: 1px solid rgba(109,191,103,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-lime);
+  margin: 0 auto 0.75rem;
+}
+
+.timeline-year {
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  color: var(--txt-accent);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-text {
+  font-size: 0.82rem;
+  color: var(--txt-secondary);
+  line-height: 1.6;
+}
+
+.timeline-connector {
+  display: none; /* handled by grid */
+}
