@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import {
   ClipboardList, Search, Handshake,
   Truck, ShieldCheck, Bell,
@@ -101,14 +102,14 @@ const roleBadgeColors: Record<Feature['role'], { bg: string; color: string }> = 
   logistics:{ bg: 'rgba(135,206,235,0.15)', color: '#87ceeb' },
 };
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.08 } },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden:  { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.4, 0, 0.2, 1] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
 };
 
 const FeaturesSection: React.FC = () => (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Leaf, Globe2, Award, ShoppingBag, Truck, Users } from 'lucide-react';
+import { CheckCircle2, Leaf, Award, ShoppingBag, Truck, Users } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 import './AboutSection.css';
 

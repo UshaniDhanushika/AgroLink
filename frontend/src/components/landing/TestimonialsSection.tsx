@@ -193,7 +193,7 @@ const TestimonialsSection: React.FC = () => {
             </button>
 
             <div className="test-dots">
-              {testimonials.map((t2, i) => (
+              {testimonials.map((_, i) => (
                 <button
                   key={i}
                   className={`test-dot ${i === current ? 'test-dot-active' : ''}`}
